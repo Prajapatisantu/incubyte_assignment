@@ -24,5 +24,9 @@ RSpec.describe StringCalculator do
       expect(subject.add("//;\n1;2")).to eq(3)
     end
 
+    it 'raises an exception' do
+      expect { subject.add("-1,2,-3") }.to raise_error(StandardError, "negative numbers not allowed: -1,-3")
+    end
+
   end
 end
